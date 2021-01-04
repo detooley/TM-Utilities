@@ -25,8 +25,19 @@ class TsdrFile():
             self.__dictfile = dikt['trademarks'][0]
 
     # Methods for accessing data
+
+    # Returns the complete JSON file
+    @property
+    def json(self):
+        return self.__jsonfile
+
+    # Returns the whole file in a dictionary
+    @property
+    def file(self):
+        return self.__dictfile
+
     # Returns the descriptions of goods and services and their class numbers
-    # Returns a dictionary
+    # in a dictionary
     @property
     def ids(self):
         gsids = {}
@@ -49,21 +60,8 @@ class TsdrFile():
     def status(self):
         return(str(self.__dictfile['status']['status']))
 
-class FileStatus():
-    def __init__(self, sernum, cl, desc):
-        self.__file = TsdrFile(sernum)
-        self.__cl = cl
-        self.__desc = desc
+#Sample usage:
 
-    def getregstatus(self):
-        return(self.__file.status)
-
-    def getidstatus(self):
-        print(self.__file.ids)
-
-x = '87123449'
-y = '009'
-z = 'shirts'
-
-t = FileStatus(x, y, z)
-t.getidstatus()
+#serialnumber = '90100124'
+#tm = TsdrFile(serialnumber)
+#print(tm.json)
