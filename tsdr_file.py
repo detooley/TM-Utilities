@@ -29,20 +29,20 @@ class TsdrFile():
     # Returns a dictionary
     @property
     def ids(self):
-        gsIds = {}
-        for x in self.__dictfile['gslist']:
-            gsids.update({x['primeclasscode']: x['description']})
+        gsids = {}
+        for x in self.__dictfile['gsList']:
+            gsids.update({x['primeClassCode']: x['description']})
         return(gsids)
 
     # Returns serial number
     @property
-    def serNum(self):
-        return(str(self.__dictfile['status']['serialnumber']))
+    def sernum(self):
+        return(str(self.__dictfile['status']['serialNumber']))
 
     # Returns mark literal
     @property
     def mark(self):
-        return(self.__dictfile['status']['markelement'])
+        return(self.__dictfile['status']['markElement'])
 
     # Returns the registration status
     @property
@@ -51,7 +51,7 @@ class TsdrFile():
 
 class FileStatus():
     def __init__(self, sernum, cl, desc):
-        self.__file = TsdrFile(serNum)
+        self.__file = TsdrFile(sernum)
         self.__cl = cl
         self.__desc = desc
 
@@ -66,5 +66,4 @@ y = '009'
 z = 'shirts'
 
 t = FileStatus(x, y, z)
-t.getregstatus()
 t.getidstatus()
