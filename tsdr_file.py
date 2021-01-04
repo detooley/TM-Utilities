@@ -31,18 +31,18 @@ class TsdrFile():
     def ids(self):
         gsIds = {}
         for x in self.__dictfile['gslist']:
-            gsIds.update({x['primeclasscode']: x['description']})
+            gsids.update({x['primeclasscode']: x['description']})
         return(gsids)
 
     # Returns serial number
     @property
     def serNum(self):
-        return(str(self.__dictfile['status']['serialNumber']))
+        return(str(self.__dictfile['status']['serialnumber']))
 
     # Returns mark literal
     @property
     def mark(self):
-        return(self.__dictfile['status']['markElement'])
+        return(self.__dictfile['status']['markelement'])
 
     # Returns the registration status
     @property
@@ -60,28 +60,6 @@ class FileStatus():
 
     def getidstatus(self):
         print(self.__file.ids)
-
-class ListHandler():
-    def __init__(self, fileLoc):
-        pass
-
-    def parsefile():
-        self.__file = {}
-        for x in serNum:
-            self.__file[x] = TsdrFile(x)
-
-class IdComparison():
-    def __init__(fileId, compTerm, cl):
-        self.__fileid = fileid
-        self.__compterm = compterm
-        self._cl = cl
-
-    def __formatid():
-        pass
-
-    def compareid():
-        pass
-
 
 x = '87123449'
 y = '009'
