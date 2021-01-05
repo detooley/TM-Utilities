@@ -4,6 +4,7 @@
 """
 import requests
 import json
+import config
 
 class TsdrFile():
     # Alllows users to set serial number when instantiating
@@ -15,17 +16,15 @@ class TsdrFile():
     # Do a try-catch and retry wheb not 200
     def setfile(self, sernum):
         for x in sernum:
-            url = 'https://tsdrsec.uspto.gov/ts/cd/casestatus/sn' + sernum + \
-            '/info.json'
-            response = requests.get(url)
+            url = config.tsdr_api_url + sernum + '/info.json'
+            response = requests.get(url, headers=config.tsdr_api_key)
             text = response.text
             dikt = json.loads(text)
-            # Set private variables used by other methodsB
+            # Set private variables used by other methods
             self.__jsonfile = text
             self.__dictfile = dikt['trademarks'][0]
 
     # Methods for accessing data
-
     # Returns the complete JSON file
     @property
     def json(self):
@@ -62,6 +61,7 @@ class TsdrFile():
 
 #Sample usage:
 
-#serialnumber = '90100124'
-#tm = TsdrFile(serialnumber)
-#print(tm.json)
+print (config.tsdr_api_key)
+serialnumber = '90100124'
+tm = TsdrFile(serialnumber)
+print(tm.ids)
