@@ -61,7 +61,6 @@ class TsdrFile():
 
 #Sample usage:
 
-print (config.tsdr_api_key)
 serialnumber = '90100124'
 tm = TsdrFile(serialnumber)
 print(tm.ids)
