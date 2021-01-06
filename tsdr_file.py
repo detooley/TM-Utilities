@@ -61,6 +61,6 @@ class TsdrFile():
 
 #Sample usage:
 
-serialnumber = '90100124'
-tm = TsdrFile(serialnumber)
-print(tm.ids)
+#serialnumber = '90100124'
+#tm = TsdrFile(serialnumber)
+#print(tm.ids)
