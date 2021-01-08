@@ -17,7 +17,7 @@ class TsdrFile():
     def setfile(self, sernum):
         for x in sernum:
             # TODO: fix url to read sernum from a list
-            url = config.tsdr_api_url + sernum + '/info.json'
+            url = config.tsdr_api_url + sernum[0] + '/info.json'
             response = requests.get(url, headers=config.tsdr_api_key)
             text = response.text
             dikt = json.loads(text)
