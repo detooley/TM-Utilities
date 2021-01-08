@@ -10,7 +10,7 @@ class TsdrFile():
     # Alllows users to set serial number when instantiating
     # Includes a demo serial number for lazy people
     def __init__(self, sernum=['88855299']):
-        self.setfile(sernum)
+        self.dikt = self.setfile(sernum)
 
     # Allows user to change serial number
     # Do a try-catch and retry wheb not 200
@@ -25,6 +25,9 @@ class TsdrFile():
             # Set private variables used by other methods
             self.__jsonfile = text
             self.__dictfile = dikt['trademarks'][0]
+
+            # returning dictionary for testing purposes
+            return dikt['trademarks'][0]
 
     # Methods for accessing data
     # Returns the complete JSON file
@@ -60,6 +63,12 @@ class TsdrFile():
     @property
     def status(self):
         return(str(self.__dictfile['status']['status']))
+
+    # Returns the owner name
+    # DAVE, what's with the weird ownergroup data, e.g., '10'?
+    @property
+    def owner_name(self):
+        return(self.__dictfile['parties']['ownerGroups']['10'][0]['name'])
 
 #Sample usage:
 
