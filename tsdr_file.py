@@ -20,7 +20,8 @@ class TsdrFile():
             url = config.tsdr_api_url + sernum[0] + '/info.json'
             response = requests.get(url, headers=config.tsdr_api_key)
             text = response.text
-            dikt = json.loads(text)
+            # the following reads more cleanly
+            dikt = json.loads(response.content)
             # Set private variables used by other methods
             self.__jsonfile = text
             self.__dictfile = dikt['trademarks'][0]
