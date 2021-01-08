@@ -16,6 +16,7 @@ class TsdrFile():
     # Do a try-catch and retry wheb not 200
     def setfile(self, sernum):
         for x in sernum:
+            # TODO: fix url to read sernum from a list
             url = config.tsdr_api_url + sernum + '/info.json'
             response = requests.get(url, headers=config.tsdr_api_key)
             text = response.text
