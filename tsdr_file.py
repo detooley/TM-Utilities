@@ -10,7 +10,7 @@ class TsdrFile():
     # Alllows users to set serial number when instantiating
     # Includes a demo serial number for lazy people
     def __init__(self, sernum=['88855299']):
-        self.dikt = self.setfile(sernum)
+        self.setfile(sernum)
 
     # Allows user to change serial number
     # Do a try-catch and retry wheb not 200
