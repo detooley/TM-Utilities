@@ -9,13 +9,16 @@ import config
 class TsdrFile():
     # Alllows users to set serial number when instantiating
     # Includes a demo serial number for lazy people
-    def __init__(self, sernum=['88855299']):
-        self.setfile(sernum)
+
+    # Dave, there was a problem with your url line. i just amended to
+    # change to single serial number and multiple serial numbers
+    def __init__(self, sernums=['88855299']):
+        self.setfile(sernums)
 
     # Allows user to change serial number
     # Do a try-catch and retry wheb not 200
-    def setfile(self, sernum):
-        for x in sernum:
+    def setfile(self, sernums):
+        for sernum in sernums:
             url = config.tsdr_api_url + sernum + '/info.json'
             response = requests.get(url, headers=config.tsdr_api_key)
             text = response.text
