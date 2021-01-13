@@ -64,6 +64,6 @@ class TsdrFile():
 
 #Sample usage:
 
-serialnumber = '90100125'
+serialnumber = '85359519'
 tm = TsdrFile(serialnumber)
 print(tm.mark)
