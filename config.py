@@ -1,5 +1,5 @@
 home = 'https://s2a.app'
-tsdr_api_url = 'https://tsdrapi.uspto.gov/ts/cd/casestatus/sn'
+id_api_site = 'https://developer.uspto.gov/ibd-api/v1/trademark/documents?goodsServices='
 tsdr_api_key = {
     'uspto-api-key':
         'eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCIsIng1dCI6Inp2UGxaU0dkVnBRdWRYc3JMc'\
