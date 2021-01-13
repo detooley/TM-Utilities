@@ -9,9 +9,32 @@ import config
 # jupyter notebook location: C:\Users\jimmy\Documents\GitHub\TM-Utilities
 
 class IDMatcher():
-    def __init__(self):
-        self.id = 'dildos'
+    def __init__(self, id = 'dildos'):
+        self.id = id
         self.url = config.id_api_site + self.id + '/info.json'
+        self.response = requests.get(url, headers=config.tsdr_api_key)
+        self.text = response.text
+        self.dikt = json.loads(text)
+
+        self.serial_list = app_builder()
+
+    # Build list of serial numbers with identical IDs
+    def app_builder():
+        identical_list = []
+
+        # TODO: length seems capped at 100?
+        dikt_length = len(dikt['response']['docs'])
+
+        # Retrieve the first serial number of identical g/s
+        serial = dikt['response']['docs'][0]['uspto_tm_document']['trademark_case_files']['trademark_case_file']['case_file_header']['serial_number']
+        # identical_list.append(serial)
+        for app in range(dikt_length):
+            serial = dikt['response']['docs'][app]['uspto_tm_document']['trademark_case_files']['trademark_case_file']['case_file_header']['serial_number']
+
+            identical_list.append(serial)
+
+
+        return identical_list
 
 
     # Allows user to change serial number
