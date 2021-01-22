@@ -11,8 +11,7 @@ def adder_page():
             <body>
                 <p>Enter your serial number:</p>
                 <form>
-                    <p><input name="number1" /></p>
-                    <p><input name="number2" /></p>
+                    <p><input name="number" /></p>
                     <p><input type="submit" value="Do your thing" /></p>
                 </form>
             </body>
