@@ -19,3 +19,4 @@ tsdr_api_key = {
         '_m46SAuu6dFmrSqunVZiiPvzgxTORqjcpIyXl0mqNihhiwermuA2bDr6JqbnENdjVaCNd'\
         'P38_MmmwdsjRV2MpbMFXG1aOX97A'
 }
+idm_api_url = 'https://idm-tmng.uspto.gov/idm2-services/search/public'
