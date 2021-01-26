@@ -12,7 +12,7 @@ class IdmRequest():
         self.__queryidm(search)
 
     # Do a try-catch and retry wheb not 200
-    def queryidm(self, search):
+    def __queryidm(self, search):
         url = config.idm_api_url + '?' + search
         response = requests.get(url)
         # Set private variables used by other methods
@@ -31,5 +31,5 @@ class IdmRequest():
         return self.__dictfile
 
 # Sample usage
-# idm = IdmRequest('search-term=shoes')
+# idm = IdmRequest('search-term=crampons')
 # print(idm.json)

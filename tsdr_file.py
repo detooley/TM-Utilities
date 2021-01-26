@@ -14,7 +14,7 @@ class TsdrFile():
 
     # Allows user to change serial number
     # Do a try-catch and retry wheb not 200
-    def querytsdr(self, sernum):
+    def __querytsdr(self, sernum):
         url = config.tsdr_api_url + sernum + '/info.json'
         response = requests.get(url, headers=config.tsdr_api_key)
         # Set private variables used by other methods
@@ -61,8 +61,7 @@ class TsdrFile():
     def owner_name(self):
         return(self.__dictfile['parties']['ownerGroups']['10'][0]['name'])
 
-#Sample usage:
-
-#serialnumber = '85359519'
-#tm = TsdrFile(serialnumber)
-#print(tm.mark)
+# Sample usage:
+# serialnumber = '85359519'
+# tm = TsdrFile(serialnumber)
+# print(tm.mark)
