@@ -10,17 +10,16 @@ class TsdrFile():
     # Alllows users to set serial number when instantiating
     # Includes a demo serial number for lazy people
     def __init__(self, sernum='88855299'):
-        self.__setfile(sernum)
+        self.__querytsdr(sernum)
 
     # Allows user to change serial number
     # Do a try-catch and retry wheb not 200
-    def __setfile(self, sernum):
+    def querytsdr(self, sernum):
         url = config.tsdr_api_url + sernum + '/info.json'
         response = requests.get(url, headers=config.tsdr_api_key)
-        text = response.text
-        dikt = json.loads(text)
         # Set private variables used by other methods
-        self.__jsonfile = text
+        self.__jsonfile = response.json()
+        dikt = json.loads(response.content)
         self.__dictfile = dikt['trademarks'][0]
 
     # Methods for accessing data
@@ -31,7 +30,7 @@ class TsdrFile():
 
     # Returns the whole file in a dictionary
     @property
-    def file(self):
+    def dict(self):
         return self.__dictfile
 
     # Returns the descriptions of goods and services and their class numbers
